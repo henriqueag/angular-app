@@ -1,0 +1,9 @@
+<div *ngIf="ready$ | async; else loadingBlock">
+
+</div>
+
+<ng-template #loadingBlock>
+    <div class="skeleton-container">
+        <div *ngFor="let _ of loadingLinesLength" class="skeleton"></div>
+    </div>
+</ng-template>

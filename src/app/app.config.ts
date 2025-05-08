@@ -3,12 +3,13 @@ import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } fr
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { routes } from './app.routes';
+import { smartViewAuthInterceptor } from './integration/interceptors/auth.interceptor';
 
 export const appConfig: ApplicationConfig = {
     providers: [
         provideZoneChangeDetection({ eventCoalescing: true }),
         provideRouter(routes, withComponentInputBinding()),
-        provideHttpClient(withInterceptors([]), withInterceptorsFromDi()),
+        provideHttpClient(withInterceptors([smartViewAuthInterceptor]), withInterceptorsFromDi()),
         importProvidersFrom(BrowserAnimationsModule)
     ]
 };

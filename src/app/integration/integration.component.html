@@ -1,3 +1,8 @@
-<po-page-default p-title="Integrações com Smart View" [p-actions]="pageActions">
-    <po-button p-label="Criar Token" (p-click)="createToken()"></po-button>
+<po-page-default
+    p-title="Integrações com Smart View"
+    [p-subtitle]="getSubtitle(currentUser$ | async)"
+    [p-actions]="pageActions"
+    [class.has-subtitle]="hasSubtitle"
+>
+    <dynamic-form *ngIf="parametersLoaded$.asObservable() | async" [parameters]="parameters$ | async"/>
 </po-page-default>
