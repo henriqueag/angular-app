@@ -4,5 +4,6 @@
     [p-actions]="pageActions"
     [class.has-subtitle]="hasSubtitle"
 >
-    <dynamic-form *ngIf="parametersLoaded$.asObservable() | async" [parameters]="parameters$ | async"/>
+    <embedded-resource-editing-flow *ngIf="currentUser$ | async"/>
+    <!-- <dynamic-form *ngIf="parametersLoaded$.asObservable() | async" [parameters]="parameters$ | async"/> -->
 </po-page-default>

@@ -2,9 +2,10 @@ import { AsyncPipe, NgIf } from "@angular/common";
 import { HttpClient } from "@angular/common/http";
 import { Component, inject } from "@angular/core";
 import { PoButtonModule, PoPageAction, PoPageModule } from "@po-ui/ng-components";
-import { BehaviorSubject, first, Observable, of, Subscription, tap } from "rxjs";
+import { BehaviorSubject, first, Observable, Subscription, tap } from "rxjs";
 import { environment } from "src/environments/environment";
 import { DynamicFormComponent } from "./components/dynamic-form/dynamic-form.component";
+import { EmbeddedResourceEditingFlowComponent } from "./components/embedded-resource-editing-flow/embedded-resource-editing-flow.component";
 import { Parameter } from "./models/parameter.model";
 import { SmartViewCurrentUser } from "./models/smart-view-current-user.model";
 import { SmartViewCurrentUserService } from "./services/smart-view-current-user.service";
@@ -21,7 +22,8 @@ import { SmartViewTokenService } from "./services/smart-view-token.service";
         PoButtonModule,
         NgIf,
         AsyncPipe,
-        DynamicFormComponent
+        DynamicFormComponent,
+        EmbeddedResourceEditingFlowComponent
     ]
 })
 export class IntegrationComponent {

@@ -1,0 +1,24 @@
+<div style="height: 100%;">
+    <div class="select-container">
+        <po-select
+            style="width: 50%;"
+            name="selectedType"
+            [ngModel]="selectedType"
+            (ngModelChange)="selectedType = $event"
+            p-label="Selecione o tipo de recurso"
+            [p-options]="selectOptions"
+            (p-change)="onLoadResourcesByType()"
+        />
+        <po-select
+            style="width: 50%;"
+            name="resources"
+            [ngModel]="resourceId"
+            (ngModelChange)="resourceId = $event"
+            p-label="Selecione um recurso"
+            [p-options]="resources"
+            (p-change)="onResourceSelected()"
+        />
+    </div>
+
+    <iframe *ngIf="editorUrl" width="100%" height="700px" [src]="editorUrl" frameBorder="0" allowfullscreen></iframe>
+</div>
