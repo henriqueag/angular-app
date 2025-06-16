@@ -1,7 +1,7 @@
 <div style="height: 100%;">
     <div class="select-container">
         <po-select
-            style="width: 50%;"
+            style="width: 20%;"
             name="selectedType"
             [ngModel]="selectedType"
             (ngModelChange)="selectedType = $event"
@@ -10,13 +10,19 @@
             (p-change)="onLoadResourcesByType()"
         />
         <po-select
-            style="width: 50%;"
+            style="width: 35%;"
             name="resources"
             [ngModel]="resourceId"
             (ngModelChange)="resourceId = $event"
             p-label="Selecione um recurso"
             [p-options]="resources"
             (p-change)="onResourceSelected()"
+        />
+        <po-input
+            style="width: 45%;"
+            name="inlineParameters"
+            p-label="Envio na URL"
+            [(ngModel)]="inlineParameters"
         />
     </div>
 

@@ -1,6 +1,6 @@
 import { AsyncPipe, NgIf } from "@angular/common";
 import { HttpClient } from "@angular/common/http";
-import { Component, inject } from "@angular/core";
+import { Component, inject, ViewChild } from "@angular/core";
 import { PoButtonModule, PoPageAction, PoPageModule } from "@po-ui/ng-components";
 import { BehaviorSubject, first, Observable, Subscription, tap } from "rxjs";
 import { environment } from "src/environments/environment";
@@ -27,6 +27,8 @@ import { SmartViewTokenService } from "./services/smart-view-token.service";
     ]
 })
 export class IntegrationComponent {
+    @ViewChild(EmbeddedResourceEditingFlowComponent) embedded: EmbeddedResourceEditingFlowComponent;
+
     private _tokenService = inject(SmartViewTokenService);
     private _tokenEvents = inject(SmartViewTokenEventsService);
     private _currentUserService = inject(SmartViewCurrentUserService);
@@ -74,12 +76,14 @@ export class IntegrationComponent {
     }
 
     loadParameters() {
-        const { url, resource } = environment.smartView;
-        const requestUrl = `${url}/api/resources/${resource.type}/${resource.id}/parameters`;
+        this.embedded.execute();
 
-        this._httpClient.get<Parameter[]>(requestUrl).pipe(first()).subscribe((parameters) => {
-            this.parameters$.next(parameters);
-            this.parametersLoaded$.next(true);
-        });
+        // const { url, resource } = environment.smartView;
+        // const requestUrl = `${url}/api/resources/${resource.type}/${resource.id}/parameters`;
+
+        // this._httpClient.get<Parameter[]>(requestUrl).pipe(first()).subscribe((parameters) => {
+        //     this.parameters$.next(parameters);
+        //     this.parametersLoaded$.next(true);
+        // });
     }
 }

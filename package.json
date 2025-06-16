@@ -19,8 +19,6 @@
         "@angular/platform-browser-dynamic": "^18.2.13",
         "@angular/platform-server": "^18.2.13",
         "@angular/router": "^18.2.13",
-        "@po-ui/ng-components": "^18.24.0",
-        "@totvs/po-theme": "^18.24.0",
         "@totvs/thf-components": "^18.24.0",
         "primeflex": "^4.0.0",
         "rxjs": "~7.8.0",
